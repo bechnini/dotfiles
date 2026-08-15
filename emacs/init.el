@@ -51,12 +51,20 @@
   (setq org-startup-indented t
         org-hide-leading-stars t
         org-startup-folded 'content
-        org-log-done 'time))
+        org-log-done 'time
+	org-support-shift-select 1))
 ;; Enable org-superstar for prettier bullets
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode)
   :config
   (setq org-superstar-headline-bullets-list '("◉" "○" "✸" "✿")))
+
+
+(require 'deft)
+(setq deft-directory "~/Documents/orgfiles/")
+(setq deft-extension '("org"))
+(setq deft-text-mode 'org-mode)
+(global-set-key [] 'deft)
 
 
 ;; ---------------------------------
@@ -80,7 +88,7 @@
 
 
 ;; ---------------------------------
-;; Doom Modeline + Icons
+;; Doom Modeline + Icons + evil mode
 ;; ---------------------------------
 (use-package all-the-icons
   :if (display-graphic-p)) ;; only load in GUI
@@ -93,6 +101,7 @@
   :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-height 25))
+
 
 ;; ---------------------------------
 ;; Window Navigation
@@ -110,10 +119,9 @@
    '("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11"
      default))
  '(package-selected-packages
-   '(all-the-icons-ivy-rich counsel doom-modeline doom-themes magit
-			    nerd-icons-completion nerd-icons-dired
-			    nerd-icons-ibuffer org-modern
-			    org-superstar sublime-themes)))
+   '(all-the-icons-ivy-rich counsel deft doom-modeline doom-themes evil
+			    magit org-superstar sublime-themes
+			    zzz-to-char)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
