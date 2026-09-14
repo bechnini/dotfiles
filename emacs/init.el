@@ -1,9 +1,7 @@
-;; ---------------------------------
-;; Package Setup
-;; ---------------------------------
 (require 'package)
 (setq package-archives
       '(("gnu"   . "https://elpa.gnu.org/packages/")
+	("org" . "https://orgmode.org/elpa/")	
         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
@@ -17,14 +15,11 @@
 (setq use-package-always-ensure t)
 
 
-;; ---------------------------------
-;; Ivy + Counsel + Swiper
-;; ---------------------------------
 (use-package ivy
   :diminish
   :config
   (ivy-mode 1))
-
+(setq ivy-initial-inputs-alist nil)
 (use-package counsel
   :after ivy
   :config
@@ -43,88 +38,71 @@
   (ivy-rich-mode 1))
 
 
-;; ---------------------------------
-;; Org Mode
-;; ---------------------------------
 (use-package org
   :config
   (setq org-startup-indented t
         org-hide-leading-stars t
         org-startup-folded 'content
         org-log-done 'time
+	org-startup-with-inline-images t
 	org-support-shift-select 1))
-;; Enable org-superstar for prettier bullets
+
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode)
   :config
   (setq org-superstar-headline-bullets-list '("◉" "○" "✸" "✿")))
 
-
-(require 'deft)
-(setq deft-directory "~/Documents/orgfiles/")
-(setq deft-extension '("org"))
-(setq deft-text-mode 'org-mode)
-(global-set-key [] 'deft)
+(use-package elcord)
+(elcord-mode)
 
 
-;; ---------------------------------
-;; UI Tweaks
-;; ---------------------------------
+(desktop-save-mode 1)
+(setq desktop-path '("~/Desktop/"))
+(setq desktop-save t)
+
+(use-package evil)
+(evil-mode 1)
+(define-key evil-insert-state-map "jj" 'evil-normal-state)
+(define-key evil-normal-state-map ";" 'evil-forward-char)    
+(define-key evil-normal-state-map "l" 'evil-previous-line)    
+(define-key evil-normal-state-map "k" 'evil-next-line)        
+(define-key evil-normal-state-map "j" 'evil-backward-char)    
+(define-key evil-normal-state-map "h" 'evil-repeat-find-char)
+(define-key evil-visual-state-map ";" 'evil-forward-char)
+(define-key evil-visual-state-map "l" 'evil-previous-line)
+(define-key evil-visual-state-map "k" 'evil-next-line)
+(define-key evil-visual-state-map "j" 'evil-backward-char)
+
+(global-visual-line-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
+(setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
 
-(use-package doom-themes
-  :config
-  ;; Use your preferred Doom theme (Soplsky for example)
-  ;; NOTE: you need to have doom-themes installed for this.)
-
-  (use-package sublime-themes)
+  (use-package sublime-themes
   :ensure t
   :config
   (load-theme 'spolsky t))
 
 
-;; ---------------------------------
-;; Doom Modeline + Icons + evil mode
-;; ---------------------------------
-(use-package all-the-icons
-  :if (display-graphic-p)) ;; only load in GUI
+(use-package all-the-icons)
 (use-package all-the-icons-ivy-rich)
 (all-the-icons-ivy-rich-mode 1)
-
 
 (use-package doom-modeline
   :after all-the-icons
   :hook (after-init . doom-modeline-mode)
   :custom
-  (doom-modeline-height 25))
+  (doom-modeline-height 20)
+  (doom-modeline-modal nil)) 
 
-
-;; ---------------------------------
-;; Window Navigation
-;; ---------------------------------
 (use-package windmove
   :ensure nil
   :config
   (windmove-default-keybindings))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11"
-     default))
- '(package-selected-packages
-   '(all-the-icons-ivy-rich counsel deft doom-modeline doom-themes evil
-			    magit org-superstar sublime-themes
-			    zzz-to-char)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+
+
+
+
