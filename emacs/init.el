@@ -86,7 +86,14 @@
   :config
   (load-theme 'spolsky t))
 
+(setq global-display-line-numbers-exclude-modes
+       '(shell-mode
+        vterm-mode))
 
+(add-hook 'display-line-numbers-mode-hook
+	  (lambda ()
+            (when (derived-mode-p 'shell-mode )
+             (display-line-numbers-mode -1))))
 (use-package all-the-icons)
 (use-package all-the-icons-ivy-rich)
 (all-the-icons-ivy-rich-mode 1)
@@ -102,7 +109,3 @@
   :ensure nil
   :config
   (windmove-default-keybindings))
-
-
-
-
