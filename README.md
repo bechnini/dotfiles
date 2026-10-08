@@ -2,9 +2,9 @@
 # dotfiles
 ## Screenshots
 
-![Preview](2026-04-12_23-56.png) 
+![Preview](wallpapers/2026-04-12_23-56.png) 
 
-![Preview](2026-04-12_23-58.png) 
+![Preview](wallpapers/2026-04-12_23-58.png) 
 
 My personal configuration files for **i3wm**, **Emacs**, and **rofi** on Artix Linux.
 
@@ -61,7 +61,7 @@ ln -sf ~/.dotfiles/rofi/config.rasi ~/.config/rofi/config.rasi
 
 ## System
 
-- **OS:** Artix Linux
+- **OS:** NixOS
 - **WM:** i3wm
 - **CPU** Ryzen 5 5500
 - **GPU** Rtx 3050 OC 8GB
