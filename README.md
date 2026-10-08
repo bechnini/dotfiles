@@ -21,13 +21,13 @@ My personal configuration files for **i3wm**, **Emacs**, and **rofi** on Artix L
 **i3wm + rofi**
 
 ```bash
-sudo pacman -S i3-wm i3status i3lock rofi
+i3-wm i3status i3lock rofi
 ```
 
 **Emacs**
 
 ```bash
-sudo pacman -S emacs
+emacs
 ```
 
 ## Installation
