@@ -6,7 +6,7 @@
 
 ![Preview](wallpapers/2026-04-12_23-58.png) 
 
-My personal configuration files for **i3wm**, **Emacs**, and **rofi** on Artix Linux.
+My personal configuration files for **i3wm**, **Emacs**, and **rofi** on NixOs.
 
 > Use at your own risk. These are tailored to my setup — review before applying.
 
