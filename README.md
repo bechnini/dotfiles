@@ -2,9 +2,9 @@
 # dotfiles
 ## Screenshots
 
-![Preview](wallpapers/2026-04-12_23-56.png) 
+![Preview](wallpapers/screenshot_2026-11-01_01-31-44.png) 
 
-![Preview](wallpapers/2026-04-12_23-58.png) 
+![Preview](wallpapers/screenshot_2026-10-29_23-20-57.png) 
 
 My personal configuration files for **i3wm**, **Emacs**, and **rofi** on NixOs.
 
